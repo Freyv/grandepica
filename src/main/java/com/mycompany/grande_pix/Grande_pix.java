@@ -15,13 +15,13 @@ import static model.Conection_db.getConection;
 public class Grande_pix {
 
     public static void main(String[] args) {
-       //Login login = new Login();
-       //login.setVisible(true);
-       Connection conexão = getConection();
-       if (conexão != null){
-           System.out.println("conected");
-       }else{
-       System.out.println("conection error");
-       }
+       Login login = new Login();
+       login.setVisible(true);
+       //Connection conexão = getConection();
+      // if (conexão != null){
+       //    System.out.println("conected");
+      // }else{
+      // System.out.println("conection error");
+      // }
     }
 }

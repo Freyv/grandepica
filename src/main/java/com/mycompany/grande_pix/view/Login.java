@@ -64,7 +64,6 @@ public class Login extends javax.swing.JFrame {
         jLabel2.setFont(new java.awt.Font("Protique", 1, 16)); // NOI18N
         jLabel2.setText("Senha:");
 
-        image.setIcon(new javax.swing.ImageIcon("C:\\Users\\devmat\\Downloads\\download.jpg")); // NOI18N
         image.setText("jLabel3");
 
         jLabel3.setFont(new java.awt.Font("Protique", 0, 24)); // NOI18N
@@ -147,7 +146,7 @@ public class Login extends javax.swing.JFrame {
     }//GEN-LAST:event_User_fieldMouseClicked
 
     private void EnterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EnterActionPerformed
-        loginControler controller = new loginControler();
+        /*loginControler controller = new loginControler();
         
         Usuario logou = controller.authenticate(
           User_field.getText(),pass_field.getText());
@@ -162,7 +161,11 @@ public class Login extends javax.swing.JFrame {
           
         }else{
             JOptionPane.showMessageDialog(null,"Usuario não encontrado!");
-        }
+        }*/
+        Tela home = new Tela();
+          home.setVisible(true);
+          // fechando tela de login
+          dispose();
     }//GEN-LAST:event_EnterActionPerformed
 
     /**

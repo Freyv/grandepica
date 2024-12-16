@@ -4,6 +4,15 @@
  */
 package com.mycompany.grande_pix.view;
 
+import java.awt.Color;
+import java.awt.Component;
+import java.awt.Image;
+import javax.swing.ImageIcon;
+import javax.swing.JLabel;
+import javax.swing.JOptionPane;
+import javax.swing.JTable;
+import javax.swing.table.DefaultTableCellRenderer;
+import javax.swing.table.DefaultTableModel;
 import model.Usuario;
 
 /**
@@ -17,6 +26,9 @@ public class Tela extends javax.swing.JFrame {
      */
     public Tela() {
         initComponents();
+        adicionarChangeListener(janela, tipo);
+        atualizarCoresLinhas(Tabela1);
+        Combodata(DataBox);
     }
 
     Tela(Usuario logou) {
@@ -32,33 +44,502 @@ public class Tela extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jLabel1 = new javax.swing.JLabel();
+        jButton1 = new javax.swing.JButton();
+        janela = new javax.swing.JTabbedPane();
+        jPanel1 = new javax.swing.JPanel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        Tabela = new javax.swing.JTable();
+        jButton3 = new javax.swing.JButton();
+        jButton2 = new javax.swing.JButton();
+        jButton4 = new javax.swing.JButton();
+        jScrollPane3 = new javax.swing.JScrollPane();
+        Tabela1 = new javax.swing.JTable();
+        jPanel2 = new javax.swing.JPanel();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        Tabela2 = new javax.swing.JTable();
+        Inicio = new javax.swing.JComboBox<>();
+        jButton5 = new javax.swing.JButton();
+        Sala = new javax.swing.JComboBox<>();
+        jLabel2 = new javax.swing.JLabel();
+        Termino = new javax.swing.JComboBox<>();
+        jLabel3 = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
+        jLabel5 = new javax.swing.JLabel();
+        jLabel6 = new javax.swing.JLabel();
+        Prof = new javax.swing.JComboBox<>();
+        jLabel7 = new javax.swing.JLabel();
+        jButton6 = new javax.swing.JButton();
+        jButton7 = new javax.swing.JButton();
+        jRadioButton1 = new javax.swing.JRadioButton();
+        DataBox = new javax.swing.JComboBox<>();
+        jPanel3 = new javax.swing.JPanel();
+        tipo = new javax.swing.JLabel();
+        jLabel8 = new javax.swing.JLabel();
+        jLabel9 = new javax.swing.JLabel();
+        jButton8 = new javax.swing.JButton();
+
+        jButton1.setText("jButton1");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setBackground(new java.awt.Color(0, 0, 255));
+        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel1.setIcon(new javax.swing.ImageIcon("C:\\Users\\devmat\\Downloads\\gato.png")); // NOI18N
-        jLabel1.setText("jLabel1");
+        Tabela.setFont(new java.awt.Font("Sitka Display", 0, 18)); // NOI18N
+        Tabela.setForeground(new java.awt.Color(204, 204, 204));
+        Tabela.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(83, Short.MAX_VALUE)
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 204, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(104, 104, 104))
+            },
+            new String [] {
+                "Sala", "professor", "entrada", "saida", "entregue"
+            }
+        ) {
+            Class[] types = new Class [] {
+                java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.Boolean.class
+            };
+            boolean[] canEdit = new boolean [] {
+                false, true, true, false, true
+            };
+
+            public Class getColumnClass(int columnIndex) {
+                return types [columnIndex];
+            }
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        Tabela.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        Tabela.setOpaque(false);
+        Tabela.setRowMargin(2);
+        Tabela.setSelectionForeground(new java.awt.Color(0, 255, 51));
+        Tabela.setShowGrid(true);
+        Tabela.getTableHeader().setReorderingAllowed(false);
+        jScrollPane1.setViewportView(Tabela);
+        if (Tabela.getColumnModel().getColumnCount() > 0) {
+            Tabela.getColumnModel().getColumn(0).setResizable(false);
+            Tabela.getColumnModel().getColumn(2).setResizable(false);
+            Tabela.getColumnModel().getColumn(3).setResizable(false);
+            Tabela.getColumnModel().getColumn(4).setResizable(false);
+        }
+
+        jButton3.setForeground(new java.awt.Color(0, 102, 255));
+        jButton3.setText("Salvar");
+        jButton3.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        jButton3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton3ActionPerformed(evt);
+            }
+        });
+
+        jButton2.setText("Criar Reserva");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
+
+        jButton4.setText("excluir reserva");
+
+        Tabela1.setFont(new java.awt.Font("Sitka Display", 0, 18)); // NOI18N
+        Tabela1.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+                "Sala", "professor", "entrada", "saida", "recebido"
+            }
+        ) {
+            Class[] types = new Class [] {
+                java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.Boolean.class
+            };
+            boolean[] canEdit = new boolean [] {
+                false, true, true, false, true
+            };
+
+            public Class getColumnClass(int columnIndex) {
+                return types [columnIndex];
+            }
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        Tabela1.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        Tabela1.setOpaque(false);
+        Tabela1.setRowMargin(2);
+        Tabela1.setSelectionForeground(new java.awt.Color(0, 255, 51));
+        Tabela1.setShowGrid(true);
+        Tabela1.getTableHeader().setReorderingAllowed(false);
+        jScrollPane3.setViewportView(Tabela1);
+        if (Tabela1.getColumnModel().getColumnCount() > 0) {
+            Tabela1.getColumnModel().getColumn(0).setResizable(false);
+            Tabela1.getColumnModel().getColumn(2).setResizable(false);
+            Tabela1.getColumnModel().getColumn(3).setResizable(false);
+            Tabela1.getColumnModel().getColumn(4).setResizable(false);
+        }
+
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 760, Short.MAX_VALUE)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(jButton2)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jButton4)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 748, Short.MAX_VALUE))
+                .addContainerGap())
         );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(86, Short.MAX_VALUE)
-                .addComponent(jLabel1)
-                .addGap(55, 55, 55))
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jButton3)
+                    .addComponent(jButton2)
+                    .addComponent(jButton4))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 189, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(29, 29, 29)
+                .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 235, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
         );
+
+        janela.addTab("Reservadas", jPanel1);
+
+        Tabela2.setFont(new java.awt.Font("Sitka Display", 0, 18)); // NOI18N
+        Tabela2.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {"Nit01", null, "00-00", "00-00"},
+                {"nit02", null, "00-00", "00-00"},
+                {"nit03", null, "00-00", "00-00"},
+                {"nit04", null, "00-00", "00-00"},
+                {"sala1", null, "00-00", "00-00"},
+                {" sala 2", null, "00-00", "00-00"},
+                {"sala 3", null, "00-00", "00-00"},
+                {"sala 4", null, "00-00", "00-00"},
+                {"sala 5", null, "00-00", "00-00"},
+                {"sala 6", null, "00-00", "00-00"},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Sala", "professor", "chegada", "saida"
+            }
+        ) {
+            Class[] types = new Class [] {
+                java.lang.String.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class
+            };
+
+            public Class getColumnClass(int columnIndex) {
+                return types [columnIndex];
+            }
+        });
+        Tabela2.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        Tabela2.setOpaque(false);
+        Tabela2.setRowMargin(2);
+        Tabela2.setSelectionForeground(new java.awt.Color(0, 255, 51));
+        Tabela2.setShowGrid(true);
+        Tabela2.getTableHeader().setReorderingAllowed(false);
+        jScrollPane2.setViewportView(Tabela2);
+        if (Tabela2.getColumnModel().getColumnCount() > 0) {
+            Tabela2.getColumnModel().getColumn(1).setResizable(false);
+            Tabela2.getColumnModel().getColumn(2).setResizable(false);
+        }
+
+        Inicio.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "07:00  ", "07:30  ", "08:00  ", "08:30  ", "09:00  ", "09:30  ", "10:00  ", "10:30  ", "11:00  ", "11:30  ", "12:00  ", "13:00  ", "13:30  ", "14:00  ", "14:30  ", "15:00  ", "15:30  ", "16:00  ", "16:30  ", "17:00  ", "17:30  ", "18:00  ", "18:30  ", "19:00  ", "19:30  ", "20:00  ", "20:30  ", "21:00  ", " " }));
+        Inicio.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                InicioActionPerformed(evt);
+            }
+        });
+
+        jButton5.setText("criar reserva");
+        jButton5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton5ActionPerformed(evt);
+            }
+        });
+
+        Sala.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "NIT_01", "NIT_02", "NIT_03", "NIT_04", "Sala 05", "Sala 06", "Sala 07", "Sala 08", "Sala 09", "Sala 10", "Sala 11", "Sala 12", "Sala 13", "Sala 14", "Sala 15", "Sala 16", "Sala 17", "Sala 18", "Sala 19", "Sala 20", "Sala 21", "Sala 22", "Sala 23", "Sala 24", "Sala 25", "Sala 26", "Sala 27", "Sala 28", "Sala 29", "Sala 30", "Sala 31", "Sala 32", "Sala 33", "Sala 34", "Sala 35", "Sala 36", "Sala 37", "Sala 38", "Sala 39", "Sala 40", "Sala 41", "Sala 42", "Sala 43", "Sala 44", "Sala 45", "Sala 46", "Sala 47", "Sala 48", "Sala 49", "Sala 50", "Sala 51", "Sala 52", "Sala 53", "Sala 54", "Sala 55", "Sala 56", "Sala 57", "Sala 58", "Sala 59", "Sala 60", "Sala 61", "Sala 62", "Sala 63", "Sala 64", "Sala 65", "Sala 66", "Sala 67", "Sala 68", "Sala 69", "Sala 70", "Sala 71", "Sala 72", "Sala 73", "Sala 74", "Sala 75", "Sala 76", "Sala 77", "Sala 78", "Sala 79", "Sala 80", "Sala 81", "Sala 82", "Sala 83", "Sala 84", "Sala 85", "Sala 86", "Sala 87", "Sala 88", "Sala 89", "Sala 90", "Sala 91", "Sala 92", "Sala 93", "Sala 94", "Sala 95", "Sala 96", "Sala 97", "Sala 98", "Sala 99", "Sala 100", " " }));
+
+        jLabel2.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        jLabel2.setText("Sala:");
+
+        Termino.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "07:00  ", "07:30  ", "08:00  ", "08:30  ", "09:00  ", "09:30  ", "10:00  ", "10:30  ", "11:00  ", "11:30  ", "12:00  ", "13:00  ", "13:30  ", "14:00  ", "14:30  ", "15:00  ", "15:30  ", "16:00  ", "16:30  ", "17:00  ", "17:30  ", "18:00  ", "18:30  ", "19:00  ", "19:30  ", "20:00  ", "20:30  ", "21:00  ", " " }));
+        Termino.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                TerminoActionPerformed(evt);
+            }
+        });
+
+        jLabel3.setText("inicio");
+
+        jLabel4.setText("Termino");
+
+        jLabel5.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        jLabel5.setText("Professor:");
+
+        jLabel6.setText("Data");
+
+        Prof.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Michel Temer", "Jair Messias Bolsonaro", "Ana Carolina Silva", "João Pedro Costa", "Maria José Almeida", "Carlos Eduardo Pereira", "Fernanda Oliveira Santos", "Luís Fernando Rocha", "Juliana Ribeiro Souza", "Roberto Luiz de Souza", "Beatriz Mendes Costa", "Francisco Martins Oliveira", "Patrícia Gomes Silva", "Leonardo Pereira Silva", "Simone Alves de Lima", "André Santos Costa", "Luciana Rocha Pereira", "Paulo Sérgio Andrade", "Raquel Oliveira Lima", "Marcos Antônio da Silva", " " }));
+
+        jLabel7.setFont(new java.awt.Font("Times New Roman", 1, 24)); // NOI18N
+        jLabel7.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel7.setText("Salas");
+
+        jButton6.setText("adicionar Sala");
+        jButton6.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton6ActionPerformed(evt);
+            }
+        });
+
+        jButton7.setText("adicionar Professor");
+        jButton7.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton7ActionPerformed(evt);
+            }
+        });
+
+        jRadioButton1.setText("Agendar para todos os dias uteis do mes");
+
+        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
+        jPanel2.setLayout(jPanel2Layout);
+        jPanel2Layout.setHorizontalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jScrollPane2))
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addGap(22, 22, 22)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(Sala, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jLabel2)
+                    .addComponent(jLabel5)
+                    .addComponent(Prof, 0, 287, Short.MAX_VALUE))
+                .addGap(50, 50, 50)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addComponent(DataBox, javax.swing.GroupLayout.PREFERRED_SIZE, 97, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(jRadioButton1))
+                    .addComponent(jLabel6)
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(Inicio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel3))
+                        .addGap(31, 31, 31)
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel4)
+                            .addComponent(Termino, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addGap(14, 14, 14)
+                .addComponent(jButton5, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(33, 33, 33)
+                .addComponent(jButton6)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jButton7)
+                .addGap(0, 0, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(312, 312, 312))
+        );
+        jPanel2Layout.setVerticalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                .addGap(40, 40, 40)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel2)
+                    .addComponent(jLabel3)
+                    .addComponent(jLabel4))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(Inicio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(Sala, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(Termino, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel5)
+                    .addComponent(jLabel6))
+                .addGap(4, 4, 4)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(Prof, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jRadioButton1)
+                    .addComponent(DataBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(33, 33, 33)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jButton5)
+                    .addComponent(jButton6)
+                    .addComponent(jButton7))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 7, Short.MAX_VALUE)
+                .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 240, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(15, 15, 15))
+        );
+
+        janela.addTab("Gerenciar", jPanel2);
+
+        getContentPane().add(janela, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 0, 760, 540));
+
+        jPanel3.setBackground(new java.awt.Color(51, 51, 255));
+
+        tipo.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        tipo.setForeground(new java.awt.Color(255, 255, 255));
+        tipo.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        tipo.setText("porteiro");
+
+        jLabel8.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        jLabel8.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel8.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel8.setText("Bem vindo:");
+
+        jLabel9.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        jLabel9.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel9.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel9.setText("Luciano almedia de...");
+
+        jButton8.setText("jButton8");
+        jButton8.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton8ActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
+        jPanel3.setLayout(jPanel3Layout);
+        jPanel3Layout.setHorizontalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel3Layout.createSequentialGroup()
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                        .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 188, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel3Layout.createSequentialGroup()
+                                .addGap(23, 23, 23)
+                                .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(jPanel3Layout.createSequentialGroup()
+                                .addGap(83, 83, 83)
+                                .addComponent(jButton8, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                    .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addGap(38, 38, 38)
+                        .addComponent(tipo, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(787, Short.MAX_VALUE))
+        );
+        jPanel3Layout.setVerticalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel3Layout.createSequentialGroup()
+                .addContainerGap(147, Short.MAX_VALUE)
+                .addComponent(jLabel8)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(tipo)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jButton8)
+                .addGap(239, 239, 239))
+        );
+
+        getContentPane().add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 990, 540));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+
+
+    private void jButton8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton8ActionPerformed
+        if(tipo.getText().equals("porteiro")){
+        tipo.setText("administrador");
+        
+        }else if(tipo.getText().equals("administrador")){
+            tipo.setText("porteiro");
+        }
+    }//GEN-LAST:event_jButton8ActionPerformed
+
+    private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
+        String[] dados = exibirCadastroProfessor();
+        if (dados != null && dados.length > 0 && !dados[0].isEmpty()) {
+            // Adiciona o campo 0 (nome) à ComboBox
+            Prof.addItem(dados[0]);
+        } else {
+            // Exibe uma mensagem caso os dados sejam inválidos ou o nome esteja vazio
+            javax.swing.JOptionPane.showMessageDialog(
+                null,
+                "O nome não pode ser vazio ou os dados estão inválidos.",
+                "Erro",
+                javax.swing.JOptionPane.ERROR_MESSAGE
+            );
+        }
+
+        //Cadrastop tela = new Cadrastop();
+        //tela.setVisible(true);
+    }//GEN-LAST:event_jButton7ActionPerformed
+
+    private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
+        DefaultTableModel modelo = (DefaultTableModel) Tabela2.getModel();
+        String nomeSala = JOptionPane.showInputDialog(null,
+            "Digite o nome da sala:",
+            "Inserir Nome da Sala",
+            JOptionPane.PLAIN_MESSAGE);
+        Object[] novaLinha = {nomeSala ,"", "00-00", "00-00"};
+        modelo.addRow(novaLinha);
+        Sala.addItem(nomeSala);
+    }//GEN-LAST:event_jButton6ActionPerformed
+
+    private void TerminoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TerminoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_TerminoActionPerformed
+
+    private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
+javax.swing.table.DefaultTableModel modeloTabela = (javax.swing.table.DefaultTableModel) Tabela.getModel();
+    
+    // Obtém os itens selecionados de cada JComboBox
+    String itemSala = Sala.getSelectedItem() != null ? Sala.getSelectedItem().toString() : "";
+    String itemProf = Prof.getSelectedItem() != null ? Prof.getSelectedItem().toString() : "";
+    String itemInicio = Inicio.getSelectedItem() != null ? Inicio.getSelectedItem().toString() : "";
+    String itemTermino = Termino.getSelectedItem() != null ? Termino.getSelectedItem().toString() : "";
+
+    // Cria um array com os itens na ordem correta
+    Object[] novaLinha = { itemSala, itemProf, itemInicio, itemTermino };
+
+    // Adiciona a nova linha na tabela
+    modeloTabela.addRow(novaLinha);
+
+    }//GEN-LAST:event_jButton5ActionPerformed
+
+    private void InicioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_InicioActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_InicioActionPerformed
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        verificarPermissao(tipo);
+    }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+        Tabela.setBackground(Color.BLUE);
+        Tabela.repaint();
+        moverLinhasMarcadas(Tabela,Tabela1,4);
+        
+    }//GEN-LAST:event_jButton3ActionPerformed
+private void jLabel1ActionPerformed(java.awt.event.ActionEvent evt) {                                         
+    // Obtém a hora atual
+    java.time.LocalTime horaAtual = java.time.LocalTime.now();
+    
+    // Formata a hora no formato HH:mm:ss
+    java.time.format.DateTimeFormatter formatter = java.time.format.DateTimeFormatter.ofPattern("HH:mm:ss");
+    String horaFormatada = horaAtual.format(formatter);
+    
+    // Exibe a hora no JLabel
+   
+}                    
     /**
      * @param args the command line arguments
      */
@@ -93,8 +574,411 @@ public class Tela extends javax.swing.JFrame {
             }
         });
     }
+   public class CustomTableRenderer {
+
+    public static void aplicarCorSeEntregue(JTable table, int colunaEntregue) {
+        table.setDefaultRenderer(Object.class, new DefaultTableCellRenderer() {
+            @Override
+            public Component getTableCellRendererComponent(JTable table, Object value,
+                                                           boolean isSelected, boolean hasFocus,
+                                                           int row, int column) {
+                // Obtem a célula original
+                Component c = super.getTableCellRendererComponent(table, value, isSelected, hasFocus, row, column);
+
+                // Verifica se a coluna 'entregue' contém true para a linha inteira
+                Boolean entregue = (Boolean) table.getValueAt(row, colunaEntregue);
+
+                // Se a célula da coluna 'entregue' for verdadeira, altera a cor da linha inteira
+                if (entregue != null && entregue) {
+                    c.setBackground(Color.GREEN); // Define a cor verde
+                } else {
+                    c.setBackground(Color.WHITE); // Cor padrão (branca)
+                }
+
+                // Retorna a célula com a cor aplicada
+                return c;
+            }
+        });
+
+        // Força a tabela a repintar
+        table.repaint();
+    }
+}
+    public class ModificarLinhaTabela {
+
+    // Função para aplicar cores às linhas especificadas
+    public static void aplicarCoresLinhas(JTable tabela) {
+        tabela.setDefaultRenderer(Object.class, new DefaultTableCellRenderer() {
+            @Override
+            public Component getTableCellRendererComponent(JTable table, Object value,
+                                                           boolean isSelected, boolean hasFocus,
+                                                           int row, int column) {
+                Component c = super.getTableCellRendererComponent(table, value, isSelected, hasFocus, row, column);
+
+                // Garantir que a cor de fundo seja aplicada a todas as células, não apenas quando selecionadas
+                if (row == 0 || row == 1) {
+                    c.setBackground(Color.GREEN); // Linhas 1 e 2
+                } else if (row == 2) {
+                    c.setBackground(Color.RED); // Linha 3
+                } else if (row == 3) {
+                    c.setBackground(Color.BLUE); // Linha 4
+                } else {
+                    c.setBackground(Color.WHITE); // Cor padrão para outras linhas
+                }
+
+                // Se a célula estiver selecionada, altera o fundo para uma cor mais destacada
+                if (isSelected) {
+                    c.setBackground(c.getBackground().darker());
+                }
+
+                c.setForeground(Color.BLACK); // Cor do texto
+                return c;
+            }
+        });
+    }
+}
+public class ImagemUtils {
+
+    public static void redimensionarImagem(JLabel label, String caminhoImagem, int largura, int altura) {
+        // Carrega a imagem original
+        ImageIcon icon = new ImageIcon(caminhoImagem);
+        
+        // Redimensiona a imagem
+        Image image = icon.getImage(); // Obtém a imagem original
+        Image scaledImage = image.getScaledInstance(largura, altura, Image.SCALE_SMOOTH); // Redimensiona
+
+        // Define a imagem redimensionada no JLabel
+        label.setIcon(new ImageIcon(scaledImage));
+    }
+}
+public String[] exibirCadastroProfessor() {
+    // Painel principal
+    javax.swing.JPanel jPanel1 = new javax.swing.JPanel();
+    jPanel1.setBackground(new java.awt.Color(204, 204, 204));
+
+    // Componentes
+    javax.swing.JTextField nome = new javax.swing.JTextField();
+    javax.swing.JFormattedTextField cpf = new javax.swing.JFormattedTextField();
+    javax.swing.JFormattedTextField data = new javax.swing.JFormattedTextField();
+    javax.swing.JTextField email = new javax.swing.JTextField();
+    javax.swing.JLabel jLabel1 = new javax.swing.JLabel();
+    javax.swing.JLabel jLabel2 = new javax.swing.JLabel();
+    javax.swing.JLabel jLabel3 = new javax.swing.JLabel();
+    javax.swing.JLabel jLabel4 = new javax.swing.JLabel();
+    javax.swing.JLabel jLabel5 = new javax.swing.JLabel();
+
+    // Configurações dos campos
+    jLabel1.setFont(new java.awt.Font("Segoe UI", 0, 14));
+    jLabel1.setText("Nome");
+
+    jLabel2.setFont(new java.awt.Font("Segoe UI", 0, 14));
+    jLabel2.setText("Cpf");
+
+    jLabel3.setFont(new java.awt.Font("Segoe UI", 0, 14));
+    jLabel3.setText("Data de nascimento");
+
+    jLabel4.setFont(new java.awt.Font("Segoe UI", 0, 14));
+    jLabel4.setText("Email");
+
+    jLabel5.setFont(new java.awt.Font("Segoe UI", 0, 24));
+    jLabel5.setText("Cadastrar Professor");
+
+    try {
+        cpf.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(
+            new javax.swing.text.MaskFormatter("###.###.###-##")
+        ));
+    } catch (java.text.ParseException ex) {
+        ex.printStackTrace();
+    }
+
+    data.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(
+        new javax.swing.text.DateFormatter(java.text.DateFormat.getDateInstance(java.text.DateFormat.SHORT))
+    ));
+
+    // Configuração do layout
+    javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+    jPanel1.setLayout(jPanel1Layout);
+    jPanel1Layout.setHorizontalGroup(
+        jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(86, 86, 86)
+                .addComponent(jLabel5))
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(21, 21, 21)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(data, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addComponent(nome)
+                        .addComponent(jLabel3)
+                        .addComponent(jLabel4)
+                        .addComponent(jLabel1)
+                        .addComponent(jLabel2)
+                        .addComponent(email, javax.swing.GroupLayout.PREFERRED_SIZE, 318, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(cpf, javax.swing.GroupLayout.PREFERRED_SIZE, 113, javax.swing.GroupLayout.PREFERRED_SIZE)))
+    );
+    jPanel1Layout.setVerticalGroup(
+        jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addComponent(jLabel5)
+                .addGap(24, 24, 24)
+                .addComponent(jLabel1)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(nome, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabel4)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(email, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabel2)
+                .addGap(18, 18, 18)
+                .addComponent(cpf, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabel3)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(data, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+    );
+
+    // Exibe o painel em um dialog modal
+    int result = javax.swing.JOptionPane.showConfirmDialog(
+        null, 
+        jPanel1, 
+        "Cadastro de Professor", 
+        javax.swing.JOptionPane.OK_CANCEL_OPTION, 
+        javax.swing.JOptionPane.PLAIN_MESSAGE
+    );
+
+    // Se o usuário clicar em OK, retorna os dados
+    if (result == javax.swing.JOptionPane.OK_OPTION) {
+        return new String[]{
+            nome.getText(),
+            email.getText(),
+            cpf.getText(),
+            data.getText()
+        };
+    } else {
+        return null; // Retorna nulo se o usuário cancelar
+    }
+}
+public int verificarPermissao(javax.swing.JLabel importante) {
+    // Verifica se o texto do JLabel é "Administrador"
+    if ("Administrador".equalsIgnoreCase(importante.getText())) {
+        return 1; // Permissão concedida
+    } else {
+        // Exibe uma mensagem de erro caso o texto não seja "Administrador"
+        javax.swing.JOptionPane.showMessageDialog(
+            null,
+            "Você não tem permissão para fazer isso!",
+            "Erro de Permissão",
+            javax.swing.JOptionPane.ERROR_MESSAGE
+        );
+        return 0; // Sem permissão
+    }
+}
+ public void adicionarChangeListener(javax.swing.JTabbedPane tabbedPane, javax.swing.JLabel importante) {
+        tabbedPane.addChangeListener(new javax.swing.event.ChangeListener() {
+            @Override
+            public void stateChanged(javax.swing.event.ChangeEvent e) {
+                int indexSelecionado = tabbedPane.getSelectedIndex();
+                
+                // Verifica apenas quando a aba selecionada for a aba de índice 2
+                if (indexSelecionado == 1) {
+                    int permissao = verificarPermissao(importante);
+                    
+                    if (permissao == 0) {
+                        // Impede a troca de aba, caso o usuário não tenha permissão
+                        javax.swing.JOptionPane.showMessageDialog(
+                            null,
+                            "Você não tem permissão para trocar para a Aba 3!",
+                            "Erro de Permissão",
+                            javax.swing.JOptionPane.ERROR_MESSAGE
+                        );
+                        // Retorna para a aba anterior (Aba 1 ou Aba 2) se não tiver permissão
+                        tabbedPane.setSelectedIndex(0); // Retorna para a primeira aba
+                    }
+                }
+            }
+        });
+    }
+
+public void moverLinhasMarcadas(javax.swing.JTable tabelaOrigem, javax.swing.JTable tabelaDestino, int coluna) {
+    // Obter os modelos das tabelas
+    javax.swing.table.DefaultTableModel modeloOrigem = (javax.swing.table.DefaultTableModel) tabelaOrigem.getModel();
+    javax.swing.table.DefaultTableModel modeloDestino = (javax.swing.table.DefaultTableModel) tabelaDestino.getModel();
+
+    // Iterar de trás para frente para evitar problemas ao remover linhas
+    for (int i = modeloOrigem.getRowCount() - 1; i >= 0; i--) {
+        // Verificar se o valor da coluna específica está marcado como true
+        Boolean marcado = (Boolean) modeloOrigem.getValueAt(i, coluna);
+        if (marcado != null && marcado) {
+            // Obter os dados da linha
+            Object[] linha = new Object[modeloOrigem.getColumnCount()];
+            for (int j = 0; j < modeloOrigem.getColumnCount(); j++) {
+                linha[j] = modeloOrigem.getValueAt(i, j);
+            }
+
+            // Adicionar a linha ao modelo da tabela de destino
+            modeloDestino.addRow(linha);
+
+            // Remover a linha do modelo da tabela de origem
+            modeloOrigem.removeRow(i);
+        }
+    }
+}
+public void removerLinhasMarcadas(javax.swing.JTable tabela, int coluna) {
+    // Obter o modelo da tabela
+    javax.swing.table.DefaultTableModel modelo = (javax.swing.table.DefaultTableModel) tabela.getModel();
+
+    // Iterar de trás para frente para evitar problemas ao remover linhas
+    for (int i = modelo.getRowCount() - 1; i >= 0; i--) {
+        // Verificar se o valor da coluna especificada está marcado como true
+        Boolean marcado = (Boolean) modelo.getValueAt(i, coluna);
+        if (marcado != null && marcado) {
+            // Remover a linha do modelo da tabela
+            modelo.removeRow(i);
+        }
+    }
+}
+
+public void atualizarCoresLinhas(javax.swing.JTable tabela) {
+    // Obter o modelo da tabela
+    javax.swing.table.DefaultTableModel modelo = (javax.swing.table.DefaultTableModel) tabela.getModel();
+
+    // Configurar o renderizador customizado
+    tabela.setDefaultRenderer(Object.class, new javax.swing.table.DefaultTableCellRenderer() {
+        @Override
+        public java.awt.Component getTableCellRendererComponent(javax.swing.JTable table, Object value,
+                                                                 boolean isSelected, boolean hasFocus, int row, int column) {
+            java.awt.Component cell = super.getTableCellRendererComponent(table, value, isSelected, hasFocus, row, column);
+
+            // Obter a hora de término da coluna 3 (verifique se o índice está correto para sua tabela)
+            String horarioTermino = (String) modelo.getValueAt(row, 3); // Índice 3 é a coluna "Término"
+            if (horarioTermino != null) {
+                try {
+                    // Converter o horário de término para um objeto Date
+                    java.text.SimpleDateFormat formatoHora = new java.text.SimpleDateFormat("HH:mm");
+                    java.util.Date horaTermino = formatoHora.parse(horarioTermino);
+
+                    // Obter o horário atual
+                    java.util.Date horaAtual = new java.util.Date();
+
+                    // Normalizar os horários para apenas horas e minutos (remover data)
+                    String horaAtualFormatada = formatoHora.format(horaAtual);
+                    horaAtual = formatoHora.parse(horaAtualFormatada);
+
+                    // Calcular a diferença em minutos
+                    long diferencaMilis = horaTermino.getTime() - horaAtual.getTime();
+                    long diferencaMinutos = diferencaMilis / (60 * 1000);
+
+                    // Alterar a cor com base na diferença
+                    if (diferencaMinutos < -15) {
+                        cell.setBackground(java.awt.Color.RED); // Mais de 15 minutos após
+                    } else if (diferencaMinutos <= 15 && diferencaMinutos >= 0) {
+                        cell.setBackground(java.awt.Color.YELLOW); // Até 15 minutos após
+                    } else {
+                        cell.setBackground(java.awt.Color.GREEN); // Antes de terminar
+                    }
+                } catch (java.text.ParseException e) {
+                    // Caso ocorra erro ao converter a data, deixar a célula com cor padrão
+                    cell.setBackground(java.awt.Color.WHITE);
+                }
+            } else {
+                cell.setBackground(java.awt.Color.WHITE); // Se não houver valor na célula
+            }
+
+            return cell;
+        }
+    });
+
+    // Atualizar a tabela para aplicar as cores
+    tabela.repaint();
+}
+public void Combodata(javax.swing.JComboBox<String> comboBox) {
+    // Formato para exibir as datas
+    java.text.SimpleDateFormat formatoData = new java.text.SimpleDateFormat("dd/MM/yyyy");
+
+    // Obter a data atual
+    java.util.Calendar calendario = java.util.Calendar.getInstance();
+
+    // Adicionar os próximos 30 dias à comboBox
+    for (int i = 0; i < 30; i++) {
+        // Formatar a data e adicionar à comboBox
+        String dataFormatada = formatoData.format(calendario.getTime());
+        comboBox.addItem(dataFormatada);
+
+        // Incrementar o dia
+        calendario.add(java.util.Calendar.DAY_OF_MONTH, 1);
+    }
+}
+public void Data(javax.swing.JTable tabelaOrigem, javax.swing.JTable tabelaDestino) {
+    // Obter os modelos das tabelas
+    javax.swing.table.DefaultTableModel modeloOrigem = (javax.swing.table.DefaultTableModel) tabelaOrigem.getModel();
+    javax.swing.table.DefaultTableModel modeloDestino = (javax.swing.table.DefaultTableModel) tabelaDestino.getModel();
+
+    // Obter a data de hoje
+    java.text.SimpleDateFormat formatoData = new java.text.SimpleDateFormat("dd/MM/yyyy");
+    String dataHoje = formatoData.format(new java.util.Date()); // Formato como string
+
+    // Percorrer as linhas da tabela origem
+    for (int i = 0; i < modeloOrigem.getRowCount(); i++) { // Percorre do início até o fim
+        Object objetoData = modeloOrigem.getValueAt(i, 4); // Supondo que a coluna 4 contém a data
+
+        if (objetoData != null && objetoData instanceof java.util.Date) {
+            // Converte a data para string e compara com a data de hoje
+            String dataLinha = formatoData.format((java.util.Date) objetoData);
+            if (dataHoje.equals(dataLinha)) {
+                // Adiciona a linha na tabela de destino
+                Object[] linha = new Object[modeloOrigem.getColumnCount()];
+                for (int j = 0; j < modeloOrigem.getColumnCount(); j++) {
+                    linha[j] = modeloOrigem.getValueAt(i, j);
+                }
+                modeloDestino.addRow(linha);
+
+                // Remove a linha da tabela de origem
+                modeloOrigem.removeRow(i);
+
+                // Decrementa o índice, já que a tabela foi modificada
+                i--;
+            }
+        }
+    }
+}
+
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel jLabel1;
+    private javax.swing.JComboBox<String> DataBox;
+    private javax.swing.JComboBox<String> Inicio;
+    private javax.swing.JComboBox<String> Prof;
+    private javax.swing.JComboBox<String> Sala;
+    private javax.swing.JTable Tabela;
+    private javax.swing.JTable Tabela1;
+    private javax.swing.JTable Tabela2;
+    private javax.swing.JComboBox<String> Termino;
+    private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton2;
+    private javax.swing.JButton jButton3;
+    private javax.swing.JButton jButton4;
+    private javax.swing.JButton jButton5;
+    private javax.swing.JButton jButton6;
+    private javax.swing.JButton jButton7;
+    private javax.swing.JButton jButton8;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
+    private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel2;
+    private javax.swing.JPanel jPanel3;
+    private javax.swing.JRadioButton jRadioButton1;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JScrollPane jScrollPane3;
+    private javax.swing.JTabbedPane janela;
+    private javax.swing.JLabel tipo;
     // End of variables declaration//GEN-END:variables
 }
